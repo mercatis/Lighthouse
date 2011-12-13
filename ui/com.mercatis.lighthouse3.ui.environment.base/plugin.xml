@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.mercatis.lighthouse3.ui.base.Domainlistener" name="DomainListener" schema="schema/com.mercatis.lighthouse3.ui.base.Domainlistener.exsd"/>
+   <extension
+         point="com.mercatis.lighthouse3.ui.base.Domainlistener">
+      <listener
+            class="com.mercatis.lighthouse3.ui.environment.base.services.impl.DomainChangeListenerWhichShouldGoAway">
+      </listener>
+   </extension>
+   <extension
+         point="com.mercatis.lighthouse3.ui.base.Domainlistener">
+      <listener
+            class="com.mercatis.lighthouse3.ui.status.base.listeners.DomainListener">
+      </listener>
+   </extension>
+   <extension
+         point="com.mercatis.lighthouse3.ui.base.Domainlistener">
+      <listener
+            class="com.mercatis.lighthouse3.ui.event.base.listener.DomainListener">
+      </listener>
+   </extension>
+   <extension
+         id="com.mercatis.lighthouse3.ui.environment.base.LighthouseDomainNature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.mercatis.lighthouse3.ui.environment.base.LighthouseDomainNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         id="com.mercatis.lighthouse3.ui.event.base.LighthouseEventNature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.mercatis.lighthouse3.ui.event.base.LighthouseEventNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         id="com.mercatis.lighthouse3.ui.status.base.LighthouseStatusNature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.mercatis.lighthouse3.ui.status.base.LighthouseStatusNature">
+         </run>
+      </runtime>
+   </extension>
+</plugin>

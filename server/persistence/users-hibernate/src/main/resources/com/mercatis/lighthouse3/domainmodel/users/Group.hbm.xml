@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.users">
+	<class name="UserCodeRegistration" table="USER_CODES">
+		<id name="userCode" column="USR_CODE" type="string" />
+	</class>
+	<class name="Group" table="GROUPS">
+		<id name="id" column="GRP_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+		<property name="code" column="GRP_CODE" unique="true" not-null="true"/>
+		<property name="longName" column="LONG_NAME"/>
+		<property name="contact" column="CONTACT"/>
+		<property name="contactEmail" column="CONTACT_EMAIL"/>
+		<property name="description" column="DESCRIPTION"/>
+		<set name="userCodes" access="field" table="GROUP_USER" cascade="all" lazy="false">
+			<key column="GRP_ID"/>
+			<many-to-many column="USR_CODE" class="UserCodeRegistration"/>
+		</set>
+	</class>
+</hibernate-mapping>

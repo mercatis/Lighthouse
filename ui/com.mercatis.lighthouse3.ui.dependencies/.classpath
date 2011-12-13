@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/activemq-all-5.5.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/velocity-1.6.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlenc-0.52.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/cglib-nodep-2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jcl-over-slf4j-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-over-slf4j-1.6.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-pool-1.5.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-httpclient-3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/geronimo-jms_1.1_spec-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/api-event-filtering-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/api-status-change-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-messaging-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlwriter-2.2.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-commons-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-commons-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-environment-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-events-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-operations-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-process-instance-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-status-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/domainmodel-users-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-commons-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-environment-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-events-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-operations-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-process-instance-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-status-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/persistence-users-rest-3.4.0-SNAPSHOT.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.operations">
+	<class name="Job" table="JOBS">
+
+		<id name="id" column="JOB_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+
+		<property name="code" column="JOB_CODE" unique="true"
+			not-null="true" />
+
+		<property name="scheduleExpression" column="SCHEDULE"
+			not-null="true" />
+
+		<property name="longName" column="LONGNAME" />
+
+		<property name="description" column="DESCRIPTION" />
+
+		<property name="contact" column="CONTACT" />
+
+		<property name="contactEmail" column="CONTACT_EMAIL" />
+
+		<component name="scheduledCall" class="OperationCall">
+			<many-to-one name="target" column="JOB_CALL_TARGET_ID"
+				class="OperationInstallation" access="field" lazy="proxy" cascade="save-update"
+				not-null="true" />
+
+			<list name="parameterValues" access="field" lazy="true"
+				cascade="all" table="JOB_PARAMETER_VALUES">
+				<key column="JPV_JOB_ID" not-null="true" />
+				<list-index column="JPV_INDEX" />
+				<composite-element class="ParameterValue">
+					<property name="name" access="field" column="NAME"
+						not-null="true" />
+					<property name="value" access="field"
+						type="com.mercatis.lighthouse3.persistence.commons.hibernate.ValueObjectUserType">
+						<column name="BOOLEAN_VAL" />
+						<column name="INTEGER_VAL" />
+						<column name="LONG_VAL" />
+						<column name="FLOAT_VAL" />
+						<column name="DOUBLE_VAL" />
+						<column name="DATE_VAL" />
+						<column name="BINARY_VAL" />
+						<column name="STRING_VAL" />
+						<column name="CLOB_VAL" />
+					</property>
+					<property name="valueLabel" access="field" column="VALUE_LABEL" />
+				</composite-element>
+			</list>
+		</component>
+	</class>
+</hibernate-mapping>

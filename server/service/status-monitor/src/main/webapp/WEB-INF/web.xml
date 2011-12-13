@@ -1,0 +1,45 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<servlet>
+		<servlet-name>StatusMonitor</servlet-name>
+		<servlet-class>com.mercatis.lighthouse3.service.statusmonitor.rest.StatusMonitorServiceContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>com.mercatis.lighthouse3.service.statusmonitor.rest</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.mercatis.lighthouse3.service.commons.rest.HibernateConfigResource</param-name>
+			<param-value>com/mercatis/lighthouse3/service/commons/rest/hibernate.lighthouse.test.cfg.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.mercatis.lighthouse3.service.statusmonitor.jms.JmsProvider</param-name>
+			<param-value>com.mercatis.lighthouse3.commons.messaging.ActiveMQProvider</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.mercatis.lighthouse3.service.statusmonitor.jms.JmsConfigResource</param-name>
+			<param-value>com/mercatis/lighthouse3/service/statusmonitor/jms/ActiveMQ.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.mercatis.lighthouse3.service.statusmonitor.email.EmailConfigResource</param-name>
+			<param-value>com/mercatis/lighthouse3/service/statusmonitor/email/EMail.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.mercatis.lighthouse3.service.statusmonitor.instances.number</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.mercatis.lighthouse3.service.statusmonitor.instances.current</param-name>
+			<param-value>1</param-value>
+		</init-param>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>StatusMonitor</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+</web-app>

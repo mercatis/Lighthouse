@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="LighthouseProduct"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.mercatis.lighthouse3.ui.application.LighthouseApplication"
+            description="Monitoring of heterogeneous applications and systems in distributed environments"
+            name="Lighthouse">
+         <property
+               name="appName"
+               value="Lighthouse">
+         </property>
+         <property
+               name="windowImages"
+               value="/branding-mercatis/icons/icon_16x16.png,/branding-mercatis/icons/icon_32x32.png,/branding-mercatis/icons/icon_48x48.png,/branding-mercatis/icons/icon_64x64.png,/branding-mercatis/icons/icon_128x128.png">
+         </property>
+         <property
+               name="aboutImage"
+               value="/branding-mercatis/about.png">
+         </property>
+         <property
+               name="aboutText"
+               value="(c) Copyright 2011 mercatis technologies AG&#x0A;&#x0A;All rights reserved.&#x0A;&#x0A;Lighthouse is proprietary trade secret information of&#x0A;mercatis technologies AG. Use, transcription, duplication and&#x0A;modification are strictly prohibited without prior written consent of&#x0A;mercatis technologies AG.">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="com.mercatis.lighthouse3.ui.branding.mercatis.SplashHandler"
+            id="com.mercatis.lighthouse.ui.branding.mercatis.SplashHandler">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="com.mercatis.lighthouse.ui.branding.mercatis.LighthouseProduct"
+            splashId="com.mercatis.lighthouse.ui.branding.mercatis.SplashHandler">
+      </splashHandlerProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.systemSummarySections">
+      <section
+            class="com.mercatis.lighthouse3.ui.branding.mercatis.ThirdpartyLibs"
+            sectionTitle="Third Party Dependencies">
+      </section>
+   </extension>
+
+</plugin>

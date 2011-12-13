@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.environment">
+	<class name="SoftwareComponent" table="COMPONENTS">
+		<!-- <cache usage="read-write" /> -->
+		
+		<id name="id" column="COM_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+		
+		<property name="code" column="COM_CODE" unique="true" not-null="true" />
+		
+		<many-to-one name="parentEntity" column="COM_PARENT_ID" class="SoftwareComponent" access="field" lazy="proxy" />
+		
+		<set name="directSubEntities" access="field" inverse="true" cascade="save-update, delete" lazy="true">
+			<key column="COM_PARENT_ID" />
+			<one-to-many class="SoftwareComponent" />
+		</set>
+		
+		<property name="longName" column="LONGNAME" />
+		
+		<property name="description" column="DESCRIPTION" />
+		
+		<property name="version" column="VERSION" />
+		
+		<property name="contact" column="CONTACT" />
+		
+		<property name="contactEmail" column="CONTACT_EMAIL" />
+		
+		<property name="copyright" column="COPYRIGHT" />
+		
+	</class>
+</hibernate-mapping>

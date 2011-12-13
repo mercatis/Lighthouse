@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.status">
+	<class name="Status" table="STATUS">
+		<!-- <cache usage="read-write" /> -->
+		
+		<id name="id" column="STA_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+			</generator>
+		</id>
+		
+		<version name="version" column="VERSION" type="long" access="field" />
+
+		<many-to-one name="context"
+			class="com.mercatis.lighthouse3.domainmodel.environment.StatusCarrier"
+			access="field" lazy="proxy" not-null="true" cascade="save-update" column="STA_CONTEXT_ID" />
+
+		<set name="statusChangeNotificationChannels" inverse="true"
+			access="field" lazy="true" cascade="all,delete-orphan,evict">
+			<key column="SNC_STATUS_ID" not-null="true"/>
+			<one-to-many class="StatusChangeNotificationChannel" />
+		</set>
+		
+		<many-to-one name="latestStatusChange" column="LATEST_STATUS_CHANGE" class="StatusChange" not-null="false" access="field" lazy="proxy" cascade="save-update,delete,evict"/>
+
+		<property name="enabled" column="ENABLED" not-null="true" access="field" />
+
+		<property name="code" column="CODE" not-null="true" />
+		
+		<property name="lastStatusUpdate" column="LAST_STATUS_UPDATE" not-null="true" access="field" />
+
+		<property name="clearanceType" column="CLEARANCE_TYPE"
+			not-null="true" />
+
+		<property name="stalenessIntervalInMsecs" column="STALENESS_INTERVAL"
+			not-null="true" />
+
+		<property name="okTemplateXml" column="OK_TEMPLATE" not-null="true"
+			type="text" access="field" />
+
+		<property name="errorTemplateXml" column="ERROR_TEMPLATE"
+			not-null="true" type="text" access="field" />
+
+		<property name="longName" column="LONGNAME" />
+
+		<property name="description" column="DESCRIPTION" />
+
+		<property name="contact" column="CONTACT" />
+
+		<property name="contactEmail" column="CONTACT_EMAIL" />
+
+        <map name="metadata" access="field" lazy="true" table="STATUS_METADATA">
+            <key column="MD_STATUS_ID" foreign-key="STATUS_METADATA_STATUS_ID_KEY" />
+            <map-key column="METADATE" type="string" />
+            <element
+                type="com.mercatis.lighthouse3.persistence.commons.hibernate.ValueObjectUserType">
+                <column name="BOOLEAN_VAL" />
+                <column name="INTEGER_VAL" />
+                <column name="LONG_VAL" />
+                <column name="FLOAT_VAL" />
+                <column name="DOUBLE_VAL" />
+                <column name="DATE_VAL" />
+                <column name="BINARY_VAL" />
+                <column name="STRING_VAL" />
+                <column name="CLOB_VAL" />
+            </element>
+        </map>
+	</class>
+	<database-object>
+		<create>create index STA_CTX_IDX on STATUS (STA_CONTEXT_ID)</create>
+		<drop>drop index STA_CTX_IDX on STATUS</drop>
+	</database-object>
+</hibernate-mapping>

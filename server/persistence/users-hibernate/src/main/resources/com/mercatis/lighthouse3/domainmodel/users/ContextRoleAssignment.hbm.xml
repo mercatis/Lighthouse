@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.users">
+	<class name="ContextRoleAssignment" table="CONTEXT_ROLE_ASSIGNMENTS">
+		<id name="id" column="CRA_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+		<property name="groupCode" column="GRP_CODE"/>
+		<property name="userCode" column="USR_CODE"/>
+		<property name="role" column="ROLE" not-null="true"/>
+		<property name="context" column="CONTEXT" not-null="true"/>
+		<property name="permissionType" column="PERMISSIONTYPE" not-null="true"/>
+	</class>
+</hibernate-mapping>

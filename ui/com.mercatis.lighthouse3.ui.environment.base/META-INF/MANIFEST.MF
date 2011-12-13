@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lighthouse Environment Base
+Bundle-SymbolicName: com.mercatis.lighthouse3.ui.environment.base;singleton:=true
+Bundle-Version: 3.4.0.qualifier
+Bundle-Activator: com.mercatis.lighthouse3.ui.common.base.CommonBaseActivator
+Bundle-Vendor: mercatis Technologies AG
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.core.resources;bundle-version="3.5.2",
+ org.eclipse.ui;bundle-version="3.5.2",
+ com.mercatis.lighthouse3.ui.security,
+ com.mercatis.lighthouse3.services,
+ com.mercatis.lighthouse3.security,
+ org.eclipse.osgi.services;bundle-version="3.3.0",
+ com.mercatis.lighthouse3.ui.dependencies
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Export-Package: com.mercatis.lighthouse3.ui.common.base,
+ com.mercatis.lighthouse3.ui.environment.base,
+ com.mercatis.lighthouse3.ui.environment.base.adapters,
+ com.mercatis.lighthouse3.ui.environment.base.adapters.impl,
+ com.mercatis.lighthouse3.ui.environment.base.message.center,
+ com.mercatis.lighthouse3.ui.environment.base.message.center.impl,
+ com.mercatis.lighthouse3.ui.environment.base.message.listener,
+ com.mercatis.lighthouse3.ui.environment.base.model,
+ com.mercatis.lighthouse3.ui.environment.base.services,
+ com.mercatis.lighthouse3.ui.environment.base.services.impl,
+ com.mercatis.lighthouse3.ui.event.base,
+ com.mercatis.lighthouse3.ui.event.base.services,
+ com.mercatis.lighthouse3.ui.status.base,
+ com.mercatis.lighthouse3.ui.status.base.adapters.impl,
+ com.mercatis.lighthouse3.ui.status.base.listeners,
+ com.mercatis.lighthouse3.ui.status.base.model,
+ com.mercatis.lighthouse3.ui.status.base.service,
+ com.mercatis.lighthouse3.ui.status.base.service.impl

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.events">
+    <class name="Event" table="EVENTS">
+
+        <id name="id" column="EVT_ID" type="long" unsaved-value="0">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+        </id>
+
+        <many-to-one name="context" column="EVT_CONTEXT_ID"
+       class="com.mercatis.lighthouse3.domainmodel.environment.Deployment"
+       access="field" lazy="proxy" foreign-key="EVENTS_EVT_CONTEXT_ID_KEY" not-null="true"/>
+
+        <property name="code" column="CODE" not-null="true" />
+
+        <property name="level" column="EVT_LEVEL" not-null="true" />
+
+        <property name="dateOfOccurrence" column="DATE_OF_OCCURRENCE"
+    not-null="true" />
+
+        <property name="machineOfOrigin" column="MACHINE" type="string" />
+
+        <property name="message" column="MESSAGE" type="text" />
+
+        <property name="stackTrace" column="STACK_TRACE" type="text" />
+
+        <set name="transactionIds" access="field" lazy="true"
+table="EVENT_TRANSACTION_IDS">
+            <key column="EVT_ID" foreign-key="EVENT_TX_IDS_EVT_ID_KEY" />
+            <element column="TRANSACTION_ID" not-null="true" type="string" />
+        </set>
+
+        <set name="tags" access="field" lazy="true" table="EVENT_TAGS">
+            <key column="EVT_ID" foreign-key="EVENT_TAGS_EVT_ID_KEY" />
+            <element column="TAG" not-null="true" type="string" />
+        </set>
+
+        <map name="udfs" access="field" lazy="true" table="EVENT_UDFS">
+            <key column="EVT_ID" foreign-key="EVENT_UDFS_EVT_ID_KEY" />
+            <map-key column="UDF" type="string" />
+            <element
+                type="com.mercatis.lighthouse3.persistence.commons.hibernate.ValueObjectUserType">
+                <column name="BOOLEAN_VAL" />
+                <column name="INTEGER_VAL" />
+                <column name="LONG_VAL" />
+                <column name="FLOAT_VAL" />
+                <column name="DOUBLE_VAL" />
+                <column name="DATE_VAL" />
+                <column name="BINARY_VAL" />
+                <column name="STRING_VAL" />
+                <column name="CLOB_VAL" />
+            </element>
+        </map>
+    </class>
+</hibernate-mapping>

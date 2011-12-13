@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.operations">
+	<class name="OperationInstallation" table="OPERATION_INSTALLATIONS">
+
+		<id name="id" column="OPI_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+
+		<property name="installedOperationCode" column="OPI_OPERATION_CODE"
+			not-null="true" access="field"/>
+
+		<many-to-one name="installationLocation" column="OPI_INSTALLATION_LOCATION_ID"
+			class="com.mercatis.lighthouse3.domainmodel.environment.Deployment" access="field"
+			lazy="proxy" cascade="save-update" not-null="true" />
+	</class>
+</hibernate-mapping>

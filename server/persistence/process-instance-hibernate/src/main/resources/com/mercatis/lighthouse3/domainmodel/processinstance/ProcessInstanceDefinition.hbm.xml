@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.processinstance">
+	<class name="ProcessInstanceDefinition" table="PROCESS_INSTANCE_DEFS">
+
+		<id name="id" column="PID_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+		
+		<property name="code" column="PID_CODE" type="string" access="field" not-null="true" />
+
+		<many-to-one name="processTask" column="PRO_ID" class="com.mercatis.lighthouse3.domainmodel.environment.ProcessTask" access="field" not-null="true" />
+
+		<set name="rules" table="PROCESS_INSTANCE_DEFS_RULES" access="field">
+			<key column="PID_ID"/>
+			<element column="RULE_TEXT" type="text"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mercatis.lighthouse3</groupId>
+		<artifactId>service</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.mercatis.lighthouse3.service</groupId>
+	<artifactId>service-job-scheduler</artifactId>
+	<packaging>jar</packaging>
+	<name>Lighthouse 3 Service Job Scheduler</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.mercatis.lighthouse3.persistence</groupId>
+			<artifactId>persistence-operations-hibernate</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.mercatis.lighthouse3.service</groupId>
+			<artifactId>service-commons-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+		</dependency>
+	</dependencies>
+</project>

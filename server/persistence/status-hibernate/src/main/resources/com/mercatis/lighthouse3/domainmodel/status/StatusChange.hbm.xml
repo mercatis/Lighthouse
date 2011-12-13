@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.status">
+	<class name="StatusChange" table="STATUS_CHANGES">
+	
+		<id name="id" access="field" column="SCH_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+			</generator>
+		</id>
+		
+		<discriminator column="SCH_TYPE" type="string" />
+ 
+		<many-to-one name="status" column="SCH_STATUS_ID" class="Status" lazy="proxy" not-null="false"/>
+
+		<many-to-one name="previousStatusChange" column="PREVIOUS_STATUS_CHANGE" class="StatusChange" not-null="false" lazy="proxy" access="field" cascade="save-update,delete,evict" unique="true" />
+		
+		<many-to-one name="nextStatusChange" column="NEXT_STATUS_CHANGE" class="StatusChange" not-null="false" lazy="proxy" access="field" cascade="save-update,delete,evict" unique="true" />
+
+		<property name="dateOfChange" column="DATE_OF_CHANGE" not-null="true" access="field" />
+
+		<property name="newStatus" access="field" not-null="true" column="NEW_STATUS" />
+
+		<property name="errorCounter" column="ERROR_COUNTER" not-null="true" access="field" />
+
+		<property name="okCounter" column="OK_COUNTER" not-null="true" access="field" />
+
+		<property name="staleCounter" column="STALE_COUNTER" not-null="true" access="field" />
+
+		<subclass name="EventTriggeredStatusChange" discriminator-value="EVENT">
+			<many-to-one name="triggeringEvent" column="TRIGGERING_EVENT_ID" class="com.mercatis.lighthouse3.domainmodel.events.Event" not-null="false" cascade="evict" lazy="proxy" access="field" />
+		</subclass>
+
+		<subclass name="ManualStatusClearance" discriminator-value="MANUAL">
+			<property name="clearer" column="CLEARER" type="text" access="field" />
+			<property name="reason" column="REASON" type="text" access="field" />
+		</subclass>
+
+		<subclass name="StalenessChange" discriminator-value="STALE" />
+	</class>
+</hibernate-mapping>

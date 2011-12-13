@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lighthouse Base
+Bundle-SymbolicName: com.mercatis.lighthouse3.ui.base;singleton:=true
+Bundle-Version: 3.4.0.qualifier
+Bundle-Activator: com.mercatis.lighthouse3.base.UIBase
+Require-Bundle: org.eclipse.ui;bundle-version="3.5.2",
+ org.eclipse.ui.ide;bundle-version="3.5.2",
+ org.eclipse.ui.forms;bundle-version="3.4.1",
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.core.resources;bundle-version="3.5.2",
+ com.mercatis.lighthouse3.ui.environment.base,
+ com.mercatis.lighthouse3.ui.operations.base,
+ com.mercatis.lighthouse3.ui.security,
+ com.mercatis.lighthouse3.ui.dependencies
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.mercatis.lighthouse3.base,
+ com.mercatis.lighthouse3.base.actions,
+ com.mercatis.lighthouse3.base.getterchain,
+ com.mercatis.lighthouse3.base.ui.editors,
+ com.mercatis.lighthouse3.base.ui.handlers,
+ com.mercatis.lighthouse3.base.ui.provider,
+ com.mercatis.lighthouse3.base.ui.widgets,
+ com.mercatis.lighthouse3.base.ui.widgets.chooser,
+ com.mercatis.lighthouse3.base.ui.widgets.eventfilter,
+ com.mercatis.lighthouse3.base.ui.widgets.tablesorting,
+ com.mercatis.lighthouse3.base.ui.wizards
+Bundle-Vendor: mercatis Technologies AG
+Import-Package: com.mercatis.lighthouse3.domainmodel.environment

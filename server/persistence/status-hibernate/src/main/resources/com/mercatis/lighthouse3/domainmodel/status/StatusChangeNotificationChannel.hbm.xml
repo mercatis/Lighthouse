@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.status">
+	<class name="StatusChangeNotificationChannel" table="STATUS_NOTIFICATION_CHANNELS">
+		<!-- <cache usage="read-write" /> -->
+		<id name="id" type="long" column="SNC_ID">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+
+		<discriminator column="SNC_TYPE" type="string" />
+
+		<many-to-one name="status" column="SNC_STATUS_ID" class="Status" lazy="proxy" not-null="true" />
+
+		<subclass name="EMailNotification" discriminator-value="EMAIL">
+			<property name="recipients" column="RECIPIENTS" type="text"/>
+			<property name="bodyMimeType" column="BODY_MIME_TYPE" />
+			<property name="titleTemplate" column="TITLE_TEMPLATE" type="text"/>
+			<property name="bodyTemplate" column="BODY_TEMPLATE" type="text"/>
+		</subclass>
+	</class>
+</hibernate-mapping>

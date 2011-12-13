@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Lighthouse" uid="com.mercatis.lighthouse3.ui.product.mercatis.LighthouseProduct" id="com.mercatis.lighthouse3.ui.product.LighthouseProduct" application="com.mercatis.lighthouse3.ui.application.LighthouseApplication" version="3.4.0.qualifier" useFeatures="false" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/branding-mercatis/about.png"/>
+      <text>
+         (c) Copyright 2011 mercatis technologies AG
+
+All rights reserved.
+
+Lighthouse is proprietary trade secret information of
+mercatis technologies AG. Use, transcription, duplication and
+modification are strictly prohibited without prior written consent of
+mercatis technologies AG.
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-data @noDefault</programArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/branding-mercatis/icons/icon_16x16.png" i32="/branding-mercatis/icons/icon_32x32.png" i48="/branding-mercatis/icons/icon_48x48.png" i64="/branding-mercatis/icons/icon_64x64.png" i128="/branding-mercatis/icons/icon_128x128.png"/>
+
+   <splash
+      location="com.mercatis.lighthouse3.ui.product" />
+   <launcher name="Lighthouse">
+      <linux icon="/branding-mercatis/icons/icon_512x512.xpm"/>
+      <macosx icon="/branding-mercatis/icons/icon_512x512.icns"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/branding-mercatis/icons/icon.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+   <license>
+        <url>http://www.mercatis.com</url>
+        <text>
+   Copyright 201 mercatis Technologies AG
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+         </text>
+   </license>
+
+   <plugins>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="com.mercatis.lighthouse3.security"/>
+      <plugin id="com.mercatis.lighthouse3.services"/>
+      <plugin id="com.mercatis.lighthouse3.ui.application"/>
+      <plugin id="com.mercatis.lighthouse3.ui.base"/>
+      <plugin id="com.mercatis.lighthouse3.ui.dependencies"/>
+      <plugin id="com.mercatis.lighthouse3.ui.environment.base"/>
+      <plugin id="com.mercatis.lighthouse3.ui.environment.ui"/>
+      <plugin id="com.mercatis.lighthouse3.ui.operations.base"/>
+      <plugin id="com.mercatis.lighthouse3.ui.operations.ui"/>
+      <plugin id="com.mercatis.lighthouse3.ui.processinstance.base"/>
+      <plugin id="com.mercatis.lighthouse3.ui.product"/>
+      <plugin id="com.mercatis.lighthouse3.ui.security"/>
+      <plugin id="com.mercatis.lighthouse3.ui.security.ui"/>
+      <plugin id="com.mercatis.lighthouse3.ui.swimlaneeditor"/>
+      <plugin id="javax.servlet"/>
+      <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.compare"/>
+      <plugin id="org.eclipse.compare.core"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filebuffers"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.macosx" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.draw2d"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.event"/>
+      <plugin id="org.eclipse.equinox.p2.core"/>
+      <plugin id="org.eclipse.equinox.p2.engine"/>
+      <plugin id="org.eclipse.equinox.p2.metadata"/>
+      <plugin id="org.eclipse.equinox.p2.metadata.repository"/>
+      <plugin id="org.eclipse.equinox.p2.repository"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.ui"/>
+      <plugin id="org.eclipse.equinox.util"/>
+      <plugin id="org.eclipse.gef"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.ltk.core.refactoring"/>
+      <plugin id="org.eclipse.ltk.ui.refactoring"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.team.core"/>
+      <plugin id="org.eclipse.team.ui"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.cocoa" fragment="true"/>
+      <plugin id="org.eclipse.ui.editors"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.navigator"/>
+      <plugin id="org.eclipse.ui.navigator.resources"/>
+      <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.views.properties.tabbed"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
+   </plugins>
+
+
+</product>

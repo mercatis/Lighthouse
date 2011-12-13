@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mercatis.lighthouse3.domainmodel.processinstance">
+	<class name="ProcessInstance" table="PROCESS_INSTANCES">
+
+		<id name="id" column="PI_ID" type="long">
+			<generator class="org.hibernate.id.MultipleHiLoPerTableGenerator">
+                <param name="table">hibernate_sequences</param>
+                <param name="primary_key_column">sequence_name</param>
+                <param name="value_column">sequence_next_hi_value</param>
+        	</generator>
+		</id>
+
+		<property name="startDate" column="PI_START" type="timestamp" access="field" not-null="true" />
+
+		<property name="endDate" column="PI_END" type="timestamp" access="field" />
+
+		<property name="erroneous" column="ERRONEOUS" type="boolean" access="field" not-null="true" />
+		
+		<property name="closed" column="CLOSED" type="boolean" access="field" not-null="true" />
+
+		<many-to-one name="processInstanceDefinition" column="PROCESS_INSTANCE_DEFINITION_ID" class="com.mercatis.lighthouse3.domainmodel.processinstance.ProcessInstanceDefinition"  access="field" not-null="true" />
+
+		<set name="events" table="PROCESS_INSTANCES_EVENTS" access="field">
+			<key column="PI_ID"/>
+			<many-to-many column="EVT_ID" class="com.mercatis.lighthouse3.domainmodel.events.Event" />
+		</set>
+	</class>
+</hibernate-mapping>

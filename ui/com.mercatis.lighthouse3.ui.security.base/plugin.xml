@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="com.mercatis.lighthouse3.ui.security.internal.ContextRolesCredentialPropertyTester"
+            id="com.mercatis.lighthouse3.ui.security.internal.ContextRolesCredentialPropertyTester"
+            namespace="lh3.security"
+            properties="role"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="com.mercatis.lighthouse3.security">
+      <securityBinding
+            context="//LH3">
+         <loginModule
+               class="com.mercatis.lighthouse3.ui.security.internal.LH3LoginModule">
+         </loginModule>
+         <authenticationModule
+               class="com.mercatis.lighthouse3.ui.security.internal.LH3AuthenticationModule">
+         </authenticationModule>
+         <authorizationModule
+               class="com.mercatis.lighthouse3.ui.security.internal.LH3AuthorizationModule">
+         </authorizationModule>
+      </securityBinding>
+   </extension>
+
+</plugin>

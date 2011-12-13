@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lighthouse Product
+Bundle-SymbolicName: com.mercatis.lighthouse3.ui.product;singleton:=true
+Bundle-Version: 3.4.0.qualifier
+Bundle-Vendor: mercatis Technologies AG
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.ui.workbench,
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ com.mercatis.lighthouse3.ui.application

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mercatis</groupId>
+		<artifactId>lighthouse3</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.mercatis.lighthouse3</groupId>
+	<artifactId>service</artifactId>
+	<packaging>pom</packaging>
+	<name>Lighthouse 3 Service</name>
+	<modules>
+		<module>commons-rest</module>
+		<module>environment-rest</module>
+		<module>event-logger</module>
+		<module>events-rest</module>
+		<module>job-scheduler</module>
+		<module>operations-rest</module>
+		<module>process-instance-rest</module>
+		<module>status-monitor</module>
+		<module>status-rest</module>
+		<module>users-rest</module>
+	</modules>
+</project>

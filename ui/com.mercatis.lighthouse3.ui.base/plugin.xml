@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.mercatis.lighthouse3.base.ui.provider.labelconverter" name="LabelConverters" schema="schema/com.mercatis.lighthouse3.base.ui.provider.labelconverter.exsd"/>
+   <extension-point id="com.mercatis.lighthouse3.ui.wizards.pages" name="WizardPages" schema="schema/com.mercatis.lighthouse3.ui.wizards.pages.exsd"/>
+   <extension-point id="com.mercatis.lighthouse3.ui.editors.pagefactory" name="PageFactory" schema="schema/com.mercatis.lighthouse3.ui.editors.pagefactory.exsd"/>
+   <extension-point id="com.mercatis.lighthouse3.ui.editors.processtaskeditor.pagefactories" name="ProcessTaskEditorPageFactories" schema="schema/com.mercatis.lighthouse3.ui.editors.processtaskeditor.pagefactories.exsd"/>
+   <extension-point id="com.mercatis.lighthouse3.ui.editors.deploymenteditor.pagefactories" name="DeploymentEditorPageFactories" schema="schema/com.mercatis.lighthouse3.ui.editors.deploymenteditor.pagefactories.exsd"/>
+   <extension-point id="com.mercatis.lighthouse3.ui.editors.environmenteditor.pagefactories" name="EnvironmentEditorPageFactories" schema="schema/com.mercatis.lighthouse3.ui.editors.environmenteditor.pagefactories.exsd"/>
+   <extension-point id="com.mercatis.lighthouse3.ui.editors.softwarecomponenteditor.pagefactories" name="SoftwareComponentEditorPageFactories" schema="schema/com.mercatis.lighthouse3.ui.editors.softwarecomponenteditor.pagefactories.exsd"/>
+   <extension
+         point="com.mercatis.lighthouse3.base.ui.provider.labelconverter">
+      <Converter
+            Converter="com.mercatis.lighthouse3.base.ui.provider.GenericEditorInputConverter"
+            Object="com.mercatis.lighthouse3.base.ui.editors.GenericEditorInput">
+      </Converter>
+   </extension>
+
+</plugin>

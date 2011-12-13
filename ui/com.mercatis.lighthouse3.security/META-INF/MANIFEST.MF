@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Lighthouse Security
+Bundle-SymbolicName: com.mercatis.lighthouse3.security;singleton:=true
+Bundle-Version: 3.4.0.qualifier
+Bundle-Activator: com.mercatis.lighthouse3.security.internal.SecurityPlugin
+Bundle-Vendor: mercatis Technologies AG
+Require-Bundle: org.eclipse.core.expressions;bundle-version="3.4.101",
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.equinox.security;bundle-version="1.0.100",
+ org.eclipse.equinox.security.ui;bundle-version="1.0.100",
+ org.eclipse.ui;bundle-version="3.5.2"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.mercatis.lighthouse3.security,
+ com.mercatis.lighthouse3.security.api
+Bundle-ActivationPolicy: lazy

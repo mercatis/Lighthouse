@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.mercatis.com/lighthouse3" xmlns:l="http://www.mercatis.com/lighthouse3">
+  <xs:simpleType name="udfType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dateTime"/>
+      <xs:enumeration value="binary"/>
+      <xs:enumeration value="string"/>
+      <xs:enumeration value="float"/>
+      <xs:enumeration value="double"/>
+      <xs:enumeration value="integer"/>
+      <xs:enumeration value="long"/>
+      <xs:enumeration value="boolean"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Event">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="l:id" minOccurs="0"/>
+        <xs:element ref="l:context"/>
+        <xs:element ref="l:code"/>
+        <xs:element ref="l:dateOfOccurrence"/>
+        <xs:element ref="l:level"/>
+        <xs:element ref="l:machineOfOrigin" minOccurs="0"/>
+        <xs:element ref="l:message" minOccurs="0"/>
+        <xs:element ref="l:stackTrace" minOccurs="0"/>
+        <xs:element ref="l:transactions"/>
+        <xs:element ref="l:udfs"/>
+        <xs:element ref="l:tags"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="id" type="xs:integer"/>
+  <xs:element name="context">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="l:deployedComponentCode"/>
+        <xs:element ref="l:deploymentLocation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deployedComponentCode" type="xs:string"/>
+  <xs:element name="deploymentLocation" type="xs:string"/>
+  <xs:element name="code" type="xs:string"/>
+  <xs:element name="dateOfOccurrence" type="xs:dateTime"/>
+  <xs:element name="level" type="xs:string"/>
+  <xs:element name="machineOfOrigin" type="xs:string"/>
+  <xs:element name="message" type="xs:string"/>
+  <xs:element name="stackTrace" type="xs:string"/>
+  <xs:element name="transactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="l:transactionId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transactionId" type="xs:string"/>
+  <xs:element name="udfs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="l:udf"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="udf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="l:key"/>
+        <xs:element ref="l:type"/>
+        <xs:element ref="l:value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key" type="xs:string"/>
+  <xs:element name="type" type="l:udfType"/>
+  <xs:element name="value" type="xs:string"/>
+  <xs:element name="tags">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="l:tag"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tag" type="xs:string"/>
+</xs:schema>
